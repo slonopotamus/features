@@ -61,7 +61,7 @@ set -e
 
 version_major=$(psql --version | sed -z "s/psql (PostgreSQL) //g" | grep -Eo -m 1 "^([0-9]+)" | sed -z "s/-//g")
 
-if [ ! -f "$PGDATA/PG_VERSION" ]; then
+if [ ! -f "$PGDATA/$PG_VERSION" ]; then
     echo "Initializing PostgreSQL database..."
     chown -R postgres:postgres $PGDATA \
         && chmod 0750 $PGDATA \
